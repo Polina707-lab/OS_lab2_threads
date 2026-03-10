@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include <windows.h>
-
+#include "core.h"
 struct ThreadData {
     const std::vector<int>* arr = nullptr;
     int mn = 0;

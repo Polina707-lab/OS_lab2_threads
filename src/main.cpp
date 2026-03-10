@@ -1,5 +1,6 @@
 #include "threads.h"
 #include "win_error.h"
+#include "core.h"
 
 #include <iostream>
 #include <vector>
@@ -72,12 +73,7 @@ int main()
         CloseHandle(hAverage);
         CloseHandle(hMinMax);
 
-        const int avg_int = static_cast<int>(data.avg);
-        for (int& v : arr) {
-            if (v == data.mn || v == data.mx) {
-                v = avg_int;
-            }
-        }
+        arr = ReplaceMinMax(arr, data.mn, data.mx, data.avg);
 
         std::cout << "Result array:\n";
         for (const int v : arr) {
